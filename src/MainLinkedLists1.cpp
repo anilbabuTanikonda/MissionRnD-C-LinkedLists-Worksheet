@@ -24,19 +24,57 @@ Objectives of C-LinkedLists-1 Lesson:
 
 //Do not edit below Header Files
 #include <stdio.h>
+#include<malloc.h>
+#include<conio.h>
 #include "FunctionHeadersLinkedLists1.h"
-
+struct node
+{
+	int num;
+	struct node *next;
+}*start1;
 int main(){
 
 	//Test 012SortSll
 
 	//Test numberToLinkedList
 
+
 	//Test removeEveryKthNode
 
+	int N = 12345678;
+	int last;
+	struct node *tmp;
+	while (N != 0)
+	{
+		last = N % 10;
+
+		tmp = (struct node *)malloc(sizeof(struct node));
+		tmp->num = last;
+
+		if (start1 == NULL)
+		{
+			tmp->next = NULL;
+			start1 = tmp;
+		}
+		else
+		{
+			tmp->next = start1;
+			start1= tmp;
+		}
+		N = N / 10;
+	}
+
+struct node *head=removeEveryKthNode(start1,2);
+struct node *ptr;
+ptr = head;
+while (ptr!= NULL)
+{
+	printf("%d", ptr->num);
+	ptr = ptr->next;
+}
 	//Test sortLinkedList
 
 	//Test twodigitLinkedList
-
+	getch();
 	return 0;
 }

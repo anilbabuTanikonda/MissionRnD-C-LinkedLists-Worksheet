@@ -12,13 +12,13 @@ namespace spec
 
 		bool compare(int A[], int len, struct node *head) {
 			int i = 0;
-			for (; i < len && head; ++i) {
+			for (; i < len; i++) {
 				if (A[i] != head->num) {
 					return false;
 				}
 				head = head->next;
 			}
-			return i == len && !head;
+			return i == len;
 		}
 
 		TEST_METHOD(zeroNumber)
